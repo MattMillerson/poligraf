@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoliGráf - Hírek két oldalról</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>PoliGráf</h1>
+        <p>A hírek két oldalról, hogy objektív képet kapj.</p>
+    </div>
+
+    <div class="vote-bar-container">
+        <div id="vote-bar"></div>
+    </div>
+    <p><span id="left-votes">0</span> 🔵 | 🔶 <span id="right-votes">0</span></p>
+
+    <div class="container">
+        <div class="column">
+            <h2>Telex cikk</h2>
+            <img src="telex_image.jpg" alt="Telex cikk képe">
+            <p><a href="https://telex.hu" target="_blank">Telex: Magyar Péter és a Tisza Párt ígéretei</a></p>
+            <button class="vote-btn" onclick="vote('left')">🔵 Upvote</button>
+        </div>
+        <div class="column">
+            <h2>Origo cikk</h2>
+            <img src="origo_image.jpg" alt="Origo cikk képe">
+            <p><a href="https://origo.hu" target="_blank">Origo: Magyar Péter és a baloldali kapcsolatok</a></p>
+            <button class="vote-btn" onclick="vote('right')">🔶 Upvote</button>
+        </div>
+    </div>
+
+    <div class="comment-section">
+        <h2>Hozzászólások</h2>
+        <textarea id="comment-input" placeholder="Írd ide a véleményed..."></textarea>
+        <button onclick="addComment()">Hozzászólás</button>
+        <div id="comments"></div>
+    </div>
+</body>
+</html>
