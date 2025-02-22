@@ -1,35 +1,92 @@
-let leftVotes = 0;
-let rightVotes = 0;
-
-function vote(side) {
-    if (side === 'left') {
-        leftVotes++;
-    } else {
-        rightVotes++;
-    }
-    document.getElementById("left-votes").textContent = leftVotes;
-    document.getElementById("right-votes").textContent = rightVotes;
-    updateVoteBar();
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    background-image: url('handshake_background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
-
-function updateVoteBar() {
-    let totalVotes = leftVotes + rightVotes;
-    if (totalVotes === 0) return;
-    
-    let leftPercentage = (leftVotes / totalVotes) * 100;
-    let rightPercentage = (rightVotes / totalVotes) * 100;
-
-    let voteBar = document.getElementById("vote-bar");
-    voteBar.style.width = `${leftPercentage}%`;
-    voteBar.style.left = `${50 - (leftPercentage / 2)}%`;
+.header {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 10;
 }
-
-function addComment() {
-    let commentText = document.getElementById("comment-input").value;
-    if (commentText.trim() !== "") {
-        let commentBox = document.createElement("p");
-        commentBox.textContent = commentText;
-        document.getElementById("comments").appendChild(commentBox);
-        document.getElementById("comment-input").value = "";
-    }
+.logo {
+    width: 250px;
+    margin-bottom: 10px;
+}
+.subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-top: 5px;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative;
+    z-index: 5;
+}
+.column {
+    width: 45%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.vote-bar-container {
+    width: 50%;
+    margin: 20px auto;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+#vote-bar {
+    height: 100%;
+    width: 50%;
+    background: linear-gradient(to right, blue, orange);
+    border-radius: 10px;
+    position: absolute;
+    left: 25%;
+    transition: all 0.3s ease-in-out;
+}
+.vote-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+.vote-btn:hover {
+    background-color: #0056b3;
+}
+.comment-section {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+textarea {
+    width: 90%;
+    height: 50px;
+    padding: 5px;
+}
+button {
+    margin-top: 10px;
+    padding: 10px;
+    cursor: pointer;
 }
